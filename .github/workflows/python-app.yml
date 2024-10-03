@@ -35,7 +35,7 @@ jobs:
 
       run: |
         git config --global user.name "CI"
-        git config --global user.email "actions@github.com"
+        git config --global user.email "strigo98@gmail.com"
         git add index.html
         git commit -m "Update index.html to newest version"
-        git push https://${{ secrets.PAT }}N@github.com/Strigssson/nhl.github.io.git
+        git push https://Strigssson:${{ secrets.PAT }}N@github.com/Strigssson/nhl.github.io.git
