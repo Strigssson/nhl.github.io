@@ -15,7 +15,7 @@ df = pd.json_normalize(response.json()['standings'])
 df['ties'] = df['gamesPlayed'] - df['regulationWins'] - df['losses']
 
 # Step 1: Group by ties and aggregate team names
-grouped = df.groupby('ties')['teamName.default'].apply(list).reindex(range(8)).fillna('').reset_index()
+grouped = df.groupby('ties')['teamName.default'].apply(list).reindex(range(11)).fillna('').reset_index()
 
 # Step 2: Create an empty DataFrame to hold the results
 max_teams = max(grouped['teamName.default'].apply(len))  # Find the maximum number of teams in any list
