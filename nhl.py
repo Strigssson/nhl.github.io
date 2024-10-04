@@ -82,7 +82,7 @@ with open('index.html', 'w') as f:
         </style>
     </head>
     <body>
-        <h1>NHL X Count Teams Table</h1>
+        <h1>NHL X</h1>
         <div>
             {table_content}
         </div>
