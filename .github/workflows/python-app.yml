@@ -29,6 +29,7 @@ jobs:
         pip install requests
         pip install pandas
         pip install datetime
+        pip install pytz
       
     - name: Run Python script
       run: python nhl.py
