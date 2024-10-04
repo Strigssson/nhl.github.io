@@ -8,7 +8,7 @@ on:
     branches:
       - main
   schedule:
-    - cron: '0 9 * * *'  # This cron expression triggers the workflow every day at midnight UTC
+    - cron: '0 8 * * *'  # This cron expression triggers the workflow every day at 8 UTC - Summer time +2CET, Winter time +1CET
 
 permissions:
   contents: write
