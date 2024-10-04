@@ -1,7 +1,7 @@
 import requests
 import pandas as pd
 from datetime import datetime
-
+import pytz
 
 # NHL Teams API URL
 api_url = "https://api-web.nhle.com/v1/standings/now"
@@ -40,7 +40,12 @@ with open('table.html', 'w') as f:
 print("HTML table created successfully.")
 
 # Get the current timestamp
-timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
+# Set the timezone for Bratislava
+bratislava_tz = pytz.timezone('Europe/Bratislava')
+
+# Get the current time in Bratislava timezone
+timestamp = datetime.now(bratislava_tz).strftime('%Y-%m-%d %H:%M:%S')
+
 
 with open('table.html', 'r') as f:
     table_content = f.read()
