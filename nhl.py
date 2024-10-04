@@ -17,14 +17,14 @@ df = pd.json_normalize(response.json()['standings'])
 df['ties'] = df['gamesPlayed'] - df['regulationWins'] - df['losses']
 
 # Step 1: Group by ties and aggregate team names
-grouped = df.groupby('ties')['teamName.default'].apply(list).reindex(range(11)).fillna('').reset_index()
+grouped = df.groupby('ties')['teamAbbrev.default'].apply(list).reindex(range(11)).fillna('').reset_index()
 
 # Step 2: Create an empty DataFrame to hold the results
-max_teams = max(grouped['teamName.default'].apply(len))  # Find the maximum number of teams in any list
+max_teams = max(grouped['teamAbbrev.default'].apply(len))  # Find the maximum number of teams in any list
 teams_df = pd.DataFrame(columns=range(11))  # Initialize an empty DataFrame with 11 columns
 
 # Step 3: Populate the DataFrame with teams, filling with NaN if necessary
-for index, team_list in enumerate(grouped['teamName.default']):
+for index, team_list in enumerate(grouped['teamAbbrev.default']):
     # Add the teams to the DataFrame
     for i in range(len(team_list)):
         teams_df.loc[i, index] = team_list[i]
@@ -82,7 +82,7 @@ with open('index.html', 'w') as f:
         </style>
     </head>
     <body>
-        <h1>NHL Teams Table</h1>
+        <h1>NHL X Count Teams Table</h1>
         <div>
             {table_content}
         </div>
