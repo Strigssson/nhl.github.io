@@ -1,5 +1,7 @@
 import requests
 import pandas as pd
+from datetime import datetime
+
 
 # NHL Teams API URL
 api_url = "https://api-web.nhle.com/v1/standings/now"
@@ -36,6 +38,9 @@ with open('table.html', 'w') as f:
     f.write(html_table)
 
 print("HTML table created successfully.")
+
+# Get the current timestamp
+timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
 
 with open('table.html', 'r') as f:
     table_content = f.read()
@@ -75,6 +80,9 @@ with open('index.html', 'w') as f:
         <h1>NHL Teams Table</h1>
         <div>
             {table_content}
+        </div>
+   <div style="margin-top: 20px; font-size: 0.9em; color: #666;">
+            <p>Last updated: {timestamp}</p>
         </div>
     </body>
     </html>
