@@ -32,7 +32,7 @@ for index, team_list in enumerate(grouped['teamAbbrev.default']):
 # Display the final DataFrame
 teams_df = teams_df.fillna('')
 
-html_table = teams_df.to_html(index=True)
+html_table = teams_df.to_html(index=False)
 # Save the HTML table to a file
 with open('table.html', 'w') as f:
     f.write(html_table)
